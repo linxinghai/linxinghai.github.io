@@ -8,7 +8,7 @@ function startTime() {
     document.getElementById('time').innerHTML = hours +":"+minutes+":"+seconds;
     t =setTimeout(function(){startTime()}, 500);
 }
-function checkTime() {
+function checkTime(i){
     if (i<10) {
         i="0"+i;
     }
