@@ -5,9 +5,9 @@ function startTime() {
     var seconds = today.getSeconds();
     minutes = checkTime(minutes);
     seconds = checkTime(seconds);
-    document.getElementById("yeartime").innerHTML = today.toUTCString();
     document.getElementById('time').innerHTML = hours +":"+minutes+":"+seconds;
     t =setTimeout(function(){startTime()}, 500);
+    document.getElementById("yeartime").innerHTML = today.toUTCString();
 }
 function checkTime(i){
     if (i<10) {
