@@ -106,7 +106,7 @@ function myquery(item) {
     console.log(item);
 }
 
-fetch("/database")
+fetch("/.netlify/functions/server")
     .then(response => response.json())
     .then(data => {
         console.log(data);
