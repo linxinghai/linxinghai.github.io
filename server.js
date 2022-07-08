@@ -14,7 +14,7 @@ server.get("/database", async function (request, response) {
       tex: i.text.rich_text[0].plain_text,
       url: i.URL.url,
       t: i.ct.created_time,
-      json: i.JSON.rich_text[0].plain_text,
+      jso: i.JSON.rich_text[0].plain_text,
     }
   })
   response.json(data)
