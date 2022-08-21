@@ -97,16 +97,27 @@ function myquery(item) {
         var obj = JSON.parse(item.json);
         document.getElementById("fpgap1").innerHTML = obj.main[0].inner;
         console.log(obj)
+        console.log(item.fil.file.url)
     }
     else
         document.getElementById("tex").innerHTML = item.tex;
     document.getElementById("url").innerHTML = item.url;
     document.getElementById("t").innerHTML = item.t;
     document.getElementById("json").innerHTML = item.json;
+
     console.log(item);
 }
 
-fetch("/.netlify/functions/server")
+function getlist(arr) {
+    var out = "";
+    var i;
+    for (i = 0; i < arr.length; i++) {
+        out += '<article>< span class="image" ><img src="images/pic01.jpg" alt="" /></span ><header class="major"><h3><a href="secondary_interface/Aliquam.html" class="link">'+arr[i]+'</a></h3><p>'+arr[i]+'</p></header></article >';
+    }
+    document.getElementById("one").innerHTML = out;
+}
+
+fetch("/database")
     .then(response => response.json())
     .then(data => {
         console.log(data);
