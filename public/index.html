@@ -16,15 +16,15 @@
 	</noscript>
 </head>
 
-<body onload="loadXMLDoc('index','one');startTime()" class="is-preload">
-
+<body onload="startTime(),loadXMLDoc('index','one',myFunction)" class="is-preload">
+	<!-- <script>console.log(window.location.href)</script> -->
 	<script>
-		function loadXMLDoc(xml, id) {
+		function loadXMLDoc(xml, id, func) {
 			var url = "xml/" + xml + ".xml"
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function () {
 				if (this.readyState == 4 && this.status == 200) {
-					myFunction(this, id);
+					func(this, id);
 				}
 			};
 			xhttp.open("GET", url, true);
@@ -46,9 +46,10 @@
 			var x = xmlDoc.getElementsByTagName("massage");
 			console.log(x);
 			for (i = 0; i < x.length; i++) {
+				console.log(x[i].getElementsByTagName("h"));
 				table += "<article><span class=\"image\"><img src=\"" +
-					x[i].getElementsByTagName("i")[0].innerHTML+
-					"\" alt=\"\" /></span><header class=\"major\"><h3><a href=\"" +
+					x[i].getElementsByTagName("i")[0].childNodes[0].nodeValue +
+					"\" alt=\"\"\/></span><header class=\"major\"><h3><a href=\"" +
 					x[i].getElementsByTagName("h")[0].childNodes[0].nodeValue +
 					"\"class=\"link\">" +
 					x[i].getElementsByTagName("a")[0].childNodes[0].nodeValue +
@@ -192,28 +193,28 @@
 		<!-- Contact -->
 		<section id="contact">
 			<div class="inner">
-				<!-- <section>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="6"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Clear" /></li>
-									</ul>
-								</form>
-							</section> -->
+				<section>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field half">
+								<label for="name">Name</label>
+								<input type="text" name="name" id="name" />
+							</div>
+							<div class="field half">
+								<label for="email">Email</label>
+								<input type="text" name="email" id="email" />
+							</div>
+							<div class="field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" rows="6"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" class="primary" /></li>
+							<li><input type="reset" value="Clear" /></li>
+						</ul>
+					</form>
+				</section>
 				<section class="split">
 					<section>
 						<div class="contact-method">
@@ -254,10 +255,10 @@
 					<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 					<li><a href="#" class="icon brands alt fa-qq"><span class="label">qq</span></a></li>
 				</ul>
-				<ul class="copyright">
+				<!-- <ul class="copyright">
 					<li>&copy; Untitled</li>
 					<li>网站模板来自: <a href="https://html5up.net">HTML5 UP</a></li>
-				</ul>
+				</ul> -->
 			</div>
 		</footer>
 
