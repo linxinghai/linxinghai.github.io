@@ -313,6 +313,10 @@
 			autoplay="autoplay" preload="auto" loop="loop"></video>
 	</div>
 	<script>
+		var add = (function () {
+			var con = 0;
+			return function () { con += 1; }
+		})();
 		function landulick() {
 			var text = "<video width=\"60\%\" height=\"60\%\" src=\"https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c3f9d746-c045-4e79-bcd0-5a937ae32f9d/%E7%BA%A2-%E9%BB%98%E8%AE%A4-%E5%9F%BA%E5%BB%BA-Sleep-x1.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220829T125908Z&X-Amz-Expires=86400&X-Amz-Signature=551f1e7d8fbed82efec0630dcc92da8c70e2bbe875eb8fa1c2f73a2ac6462e87&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%20%3D%22%25E7%25BA%25A2-%25E9%25BB%2598%25E8%25AE%25A4-%25E5%259F%25BA%25E5%25BB%25BA-Sleep-x1.webm%22&x-id=GetObject\" autoplay=\"autoplay\" preload=\"auto\" loop=\"loop\"></video>"
 			document.getElementById("landu").innerHTML = text;
@@ -326,11 +330,13 @@
 				if (c.indexOf(name) == 0) { username = c.substring(name.length, c.length); }
 			}
 			if (username != "") {
-				alert("你一天内都来" + username + "次啦");
+				var num = add();
+				if(num == 0)
+					alert("请勿频繁访问");
+				console.log(add());
 			}
 			else {
-				alert("你来啦")
-				username = 2;
+				username = 1;
 				if (username != "" && username != null) {
 					var d = new Date();
 					d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
