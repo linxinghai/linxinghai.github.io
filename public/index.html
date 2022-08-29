@@ -17,7 +17,7 @@
 	</noscript>
 </head>
 
-<body onload="startTime(),loadXMLDoc('xml/index.xml','one',myFunction)" class="is-preload">
+<body onload="startTime(),loadXMLDoc('xml/index.xml','one',myFunction),getLocation(),checkCookie()" class="is-preload">
 	<!-- <script>console.log(window.location.href)</script> -->
 	<script>
 		// <article>
@@ -317,7 +317,43 @@
 			var text = "<video width=\"60\%\" height=\"60\%\" src=\"https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c3f9d746-c045-4e79-bcd0-5a937ae32f9d/%E7%BA%A2-%E9%BB%98%E8%AE%A4-%E5%9F%BA%E5%BB%BA-Sleep-x1.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220829T125908Z&X-Amz-Expires=86400&X-Amz-Signature=551f1e7d8fbed82efec0630dcc92da8c70e2bbe875eb8fa1c2f73a2ac6462e87&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%20%3D%22%25E7%25BA%25A2-%25E9%25BB%2598%25E8%25AE%25A4-%25E5%259F%25BA%25E5%25BB%25BA-Sleep-x1.webm%22&x-id=GetObject\" autoplay=\"autoplay\" preload=\"auto\" loop=\"loop\"></video>"
 			document.getElementById("landu").innerHTML = text;
 		}
+		function checkCookie() {
+			var username = "";
+			var name = "username" + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i].trim();
+				if (c.indexOf(name) == 0) { username = c.substring(name.length, c.length); }
+			}
+			if (username != "") {
+				alert("你一天内都来" + username + "次啦");
+			}
+			else {
+				alert("你来啦")
+				username = 2;
+				if (username != "" && username != null) {
+					var d = new Date();
+					d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
+					var expires = "expires=" + d.toGMTString();
+					document.cookie = "username" + "=" + username + "; " + expires;
+				}
+			}
+		}
 	</script>
+	<!-- <a href="mailio:2950581738@qq.com"></a>
+	<script>
+		Email.send({
+			Host: "smtp.qq.com",
+			Username: "2950581738@qq.com",
+			Password: "lbkunffyienndefb",
+			To: '2950581738@qq.com',
+			From: "2950581738@qq.com",
+			Subject: "验证消息",
+			Body: "你的验证码是214598"
+		}).then(
+			message => write(message)
+		);
+	</script> -->
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -327,6 +363,8 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/time.js"></script>
+	<script src="assets/js/location.js"></script>
+	<script src="assets/js/smtp.js"></script>
 	<script src="index.js"></script>
 </body>
 
