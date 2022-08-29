@@ -1,0 +1,3 @@
+w=window.innerHeight;
+
+setInterval

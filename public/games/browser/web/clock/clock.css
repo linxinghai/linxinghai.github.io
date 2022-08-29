@@ -1,0 +1,36 @@
+@import url("http://fonts.googleapis.com/css?family=Kanit");
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #599bff;
+}
+.clock{
+    display: flex;
+}
+.clock p{
+    width: 95px;
+    font-size: 150px;
+    color: #fff;
+    text-align: center;
+    font-family: "Kanit";
+    font-weight: 900;
+    text-shadow: 0 1px 0 #f2f7ff,
+    0 2px 0 #e5efff,
+    0 3px 0 #d8e8ff,
+    0 4px 0 #cce0ff,
+    0 5px 0 #bfd8ff,
+    0 6px 0 #b2d1ff,
+    0 7px 0 #a5c9ff,
+    0 8px 0 #99c1ff,
+    0 0 5px rgba(138, 185, 255, 0.051),
+    0 -1px 3px rgba(138, 185, 255,0.2),
+    0 9px 9px rgba(138, 185, 255,0.3),
+    0 12px 12px rgba(138, 185, 255,0.3),
+    0 15px 15px rgba(138, 185, 255,0.3);
+}

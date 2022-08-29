@@ -112,9 +112,20 @@ function getlist(arr) {
     var out = "";
     var i;
     for (i = 0; i < arr.length; i++) {
-        out += '<article>< span class="image" ><img src="images/pic01.jpg" alt="" /></span ><header class="major"><h3><a href="secondary_interface/Aliquam.html" class="link">'+arr[i]+'</a></h3><p>'+arr[i]+'</p></header></article >';
+        out += '<article>< span class="image" ><img src="images/pic01.jpg" alt="" /></span ><header class="major"><h3><a href="secondary_interface/Aliquam.html" class="link">' + arr[i] + '</a></h3><p>' + arr[i] + '</p></header></article >';
     }
     document.getElementById("one").innerHTML = out;
+}
+
+function loadXMLDoc(url, id, func) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            func(this, id);
+        }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.send();
 }
 
 fetch("/database")

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .btn {
+            background-color: coral;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 26%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>原生Ajax测试</h1>
+    <a class="btn" onclick="AjaxTest1()">get发送</a>&nbsp;&nbsp;<a class="btn" onclick="AjaxTest2()">post发送</a>
+
+    <h1>仿Ajax(iframe+form)测试</h1>
+    <iframe src="" frameborder="" id="ifm" name="ifm"></iframe>
+    <form action="/ajax" method="get" target="ifm" id="fm">
+        <p><input type="text" name="user"></p>
+        <p><a onclick="AjaxTest4()">提交</a></p>
+        {% comment %} <p><input type="submit" value="提交"></p>{% endcomment %}
+    </form>
+
+    <h1>上传文件</h1>
+    <h3>Ajax(jQuery+原生)上传</h3>
+    <p><input type="file" id="file"></p>
+    <a class="btn" onclick="AjaxTest5()">上传</a>
+
+    <h3>Ajax(iframe+form)上传</h3>
+    <iframe src="" frameborder="" id="ifm2" name="ifm2"></iframe>
+    <form action="/ajax" method="post" target="ifm2" enctype="multipart/form-data" id="fm2">
+        <p><input type="file" id="if_file" name="k3"></p>
+        <a class="btn" onclick="AjaxTest6()">上传</a>
+    </form>
+
+    <script>
+        function AjaxTest1() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.open("GET", "/ajax?p=123");
+            xhr.send(null);
+        }
+
+        function AjaxTest2() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.open("POST", "/ajax");
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset-UTF-8");
+            xhr.send("p=222");
+        }
+
+        function AjaxTest4() {
+            document.getElementById("ifm").onload = AjaxTest3;
+            document.getElementById("fm").submit();
+        }
+
+        function AjaxTest3() {
+            { #console.log(thi.contentWindow.document.body.innerText);# }
+            { #console.log($(thi).contents().find("body").html());# }
+            var content = this.contentWindow.document.body.innerHTML;
+            var obj = JSON.parse(content);
+            if (obj.status) {
+                alert(obj.message);
+            }
+        }
+
+        function AjaxTest5() {
+            var formdata = new FormData()
+            formdata.append("k1", "v1");
+            formdata.append("k2", "v2");
+            formdata.append("k3", document.getElementById("file").files[0]);
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.open("POST", "/ajax");
+            { #xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset-UTF-8");# }
+            xhr.send(formdata);
+        }
+
+        function AjaxTest6() {
+            document.getElementById("ifm2").onload = AjaxTest7;
+            document.getElementById("fm2").submit();
+        }
+
+        function AjaxTest7() {
+            { #console.log(thi.contentWindow.document.body.innerText);# }
+            { #console.log($(thi).contents().find("body").html());# }
+            var content = this.contentWindow.document.body.innerHTML;
+            var obj = JSON.parse(content);
+            console.log(obj);
+        }
+    </script>
+</body>
