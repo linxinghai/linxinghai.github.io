@@ -1,6 +1,7 @@
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition,showError);
+        // navigator.geolocation.getCurrentPosition(showPosition,showError);
+		navigator.geolocation.watchPosition(showPosition,showError);
     } else {
         console.log("不支持定位");
     }

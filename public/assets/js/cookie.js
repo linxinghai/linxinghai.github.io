@@ -13,8 +13,8 @@ function checkCookie(params) {
     
 }
 
-function deleteCookie(params) {
-    
+function deleteCookie(cname) {
+    document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
 }
 
 function displayCookie(params) {

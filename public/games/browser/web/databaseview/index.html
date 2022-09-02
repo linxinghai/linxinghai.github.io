@@ -7,21 +7,25 @@
     <title>database view</title>
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        body{
+
+        body {
             overflow: hidden;
         }
-        .navbar{
+
+        .navbar {
             position: relative;
             width: 100vh;
         }
-        #checkbox{
+
+        #checkbox {
             display: none;
         }
-        .navbar label{
+
+        .navbar label {
             position: absolute;
             top: 0;
             left: 70px;
@@ -35,7 +39,8 @@
             cursor: pointer;
             transition: all 0.5s;
         }
-        .navbar ul{
+
+        .navbar ul {
             list-style: none;
             width: 70px;
             height: 100vh;
@@ -43,28 +48,33 @@
             transition: all 0.5s;
             overflow: hidden;
         }
-        .navbar ul li{
+
+        .navbar ul li {
             height: 70px;
             margin-bottom: 10px;
         }
-        .navbar ul li:first-child{
+
+        .navbar ul li:first-child {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 0 10px;
         }
-        .navbar ul li:first-child img{
+
+        .navbar ul li:first-child img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
         }
-        .navbar ul li:first-child span{
+
+        .navbar ul li:first-child span {
             color: #fff;
             white-space: nowrap;
             padding-left: 10px;
             display: none;
         }
-        .navbar ul li a{
+
+        .navbar ul li a {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -74,39 +84,49 @@
             color: #d1d1d1;
             text-decoration: none;
         }
-        .navbar ul li a i{
+
+        .navbar ul li a i {
             font-size: 15px;
             margin-bottom: 10px;
         }
-        .navbar ul li a span{
+
+        .navbar ul li a span {
             font-size: 10px;
             white-space: nowrap;
         }
-        .navbar ul li a:hover{
+
+        .navbar ul li a:hover {
             color: #fff;
             background-color: #35495d;
         }
-        .navbar input:checked + label{
+
+        .navbar input:checked+label {
             left: 200px;
         }
-        .navbar input:checked ~ ul{
+
+        .navbar input:checked~ul {
             width: 200px;
         }
-        .navbar input:checked ~ ul li:first-child{
+
+        .navbar input:checked~ul li:first-child {
             justify-content: flex-start;
         }
-        .navbar input:checked ~ ul li:first-child span{
+
+        .navbar input:checked~ul li:first-child span {
             display: block;
         }
-        .navbar input:checked ~ ul li a{
+
+        .navbar input:checked~ul li a {
             flex-direction: row;
             justify-content: flex-start;
         }
-        .navbar input:checked ~ ul li a i{
+
+        .navbar input:checked~ul li a i {
             font-size: 15px;
             margin: 0 15px 0 30px;
         }
-        .navbar input:checked ~ ul li a span{
+
+        .navbar input:checked~ul li a span {
             font-size: 14px;
         }
     </style>
@@ -120,7 +140,9 @@
         </label>
         <ul>
             <li>
-                <img src="https://cdn.jsdelivr.net/gh/linxinghai/resource/image/202204291016724.jpg" rel="stylesheet">
+                <a href="../../../../index.html">
+                    <img src="../../../../../public/images/QQ图片20210814213443.jpg" rel="stylesheet">
+                </a>
                 <span>欢迎</span>
             </li>
             <li>

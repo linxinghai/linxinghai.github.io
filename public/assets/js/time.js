@@ -15,9 +15,21 @@ function startTime() {
     }
     setInterval("document.getElementById('time').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
 }    
-function checkTime(i){
-    if (i<10) {
-        i="0"+i;
+// function checkTime(i){
+//     if (i<10) {
+//         i="0"+i;
+//     }
+//     return i;
+// }
+
+// function func() {
+//     alert("请勿长时间或频繁访问");
+// }
+
+function timerInterval(state,func,times) {
+    if (state == true) {
+        setInterval(function(){func()},times)
+    }else{
+        clearInterval()
     }
-    return i;
 }

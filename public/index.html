@@ -17,7 +17,7 @@
 	</noscript>
 </head>
 
-<body onload="startTime(),loadXMLDoc('xml/index.xml','one',myFunction),getLocation(),checkCookie()" class="is-preload">
+<body onload="startTime(),loadXMLDoc('xml/index.xml','one',myFunction)" class="is-preload">
 	<!-- <script>console.log(window.location.href)</script> -->
 	<script>
 		// <article>
@@ -60,24 +60,26 @@
 			<a href="index.html" class="logo"><strong>Star☆</strong> <span>by XingHai</span></a>
 
 			<nav>
-				<a href="#menu">菜单</a>
+				<input id="search-text" type="text" placeholder="Search">
+				<a href="#menu"></a>
 			</nav>
 		</header>
 
 		<!-- Menu -->
 		<nav id="menu">
 			<ul class="links">
-				<li><input id="search-text" type="text" placeholder="Search"></li>
 				<!-- <button id="search-btn" type="button"></button>	 -->
 				<li><a href="index.html">家</a></li>
 				<li><a href="landing.html">登录</a></li>
 				<li><a href="games/browser/web/基本的光线投射/games.html">游戏</a></li>
+				<li><a href="games/browser/web/aniplex/aniplex.html">aniplex</a></li>
+				<li><a href="games/browser/web/纸飞机/fly.html">fly</a></li>
 				<li><a href="generic.html">Generic</a></li>
 				<li><a href="elements.html">Elements</a></li>
 			</ul>
 			<ul class="actions stacked">
-				<li><a href="#" class="button primary fit">Get Started</a></li>
-				<li><a href="login.html" class="button fit">Log In</a></li>
+				<li><a href="login.html" class="button primary fit">Get Started</a></li>
+				<li><a href="games/browser/web/databaseview/index.html" class="button fit" onclick="">Log In</a></li>
 			</ul>
 		</nav>
 
@@ -93,7 +95,7 @@
 						我将在之后的时间逐渐丰富内容</p>
 					<ul class="actions">
 						<li>
-							<a href="loading.html">
+							<a href="games/browser/web/clock/clock.html">
 								<p id="time"></p>
 							</a>
 							<a href="#one" class="button next scrolly" id="weather">
@@ -264,6 +266,9 @@
 	<div id="t"></div>
 	<div id="json"></div>
 	<div id="demo"></div>
+	<script>
+		document.getElementById("demo").innerHTML = "ip归属地: " + GetLoaclIpAddress();
+	</script>
 	<!-- <script>
 		function loadXMLDoc() {
 			var xmlhttp;
@@ -276,7 +281,7 @@
 				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 			}
 			xmlhttp.onreadystatechange = function () {
-				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				if (xmlhttp.readySt	ate == 4 && xmlhttp.status == 200) {
 					var myArr = JSON.parse(this.responseText);
 					myFunction(myArr)
 				}
@@ -295,7 +300,7 @@
 			document.getElementById("myDiv").innerHTML = out;
 		}
 	</script> -->
-	<button type="button" onclick="loadXMLDoc('xml/index.xml','demo'#)">请求 JSON 数据</button>
+	<button type="button" onclick="loadXMLDoc('xml/index.xml','demo')">请求 JSON 数据</button>
 	<div id="myDiv">
 		<video width="60%" height="60%"
 			src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c3f9d746-c045-4e79-bcd0-5a937ae32f9d/%E7%BA%A2-%E9%BB%98%E8%AE%A4-%E5%9F%BA%E5%BB%BA-Sleep-x1.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220829T125908Z&X-Amz-Expires=86400&X-Amz-Signature=551f1e7d8fbed82efec0630dcc92da8c70e2bbe875eb8fa1c2f73a2ac6462e87&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%20%3D%22%25E7%25BA%25A2-%25E9%25BB%2598%25E8%25AE%25A4-%25E5%259F%25BA%25E5%25BB%25BA-Sleep-x1.webm%22&x-id=GetObject"
@@ -331,7 +336,7 @@
 			}
 			if (username != "") {
 				var num = add();
-				if(num == 0)
+				if (num == 0)
 					alert("请勿频繁访问");
 				console.log(add());
 			}
@@ -371,6 +376,7 @@
 	<script src="assets/js/time.js"></script>
 	<script src="assets/js/location.js"></script>
 	<script src="assets/js/smtp.js"></script>
+	<script src="assets/js/ip.js"></script>
 	<script src="index.js"></script>
 </body>
 
