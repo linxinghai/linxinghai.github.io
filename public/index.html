@@ -49,6 +49,10 @@
 			}
 			document.getElementById(id).innerHTML += table;
 		}
+		function input() {
+			var text = document.getElementById("search-text").value;
+			alert(text);
+		}
 	</script>
 
 	<!-- Wrapper -->
@@ -61,6 +65,7 @@
 
 			<nav>
 				<input id="search-text" type="text" placeholder="Search">
+				<button onclick="input()">搜索</button>
 				<a href="#menu"></a>
 			</nav>
 		</header>
