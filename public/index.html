@@ -103,9 +103,12 @@
 							<a href="games/browser/web/clock/clock.html">
 								<p id="time"></p>
 							</a>
-							<a href="#one" class="button next scrolly" id="weather">
-								no weather data
-							</a>
+							<div id="he-plugin-standard">
+								<a href="https://www.qweather.com/" class="button next scrolly" id="weather">
+									no weather data
+								</a>
+							</div>
+
 						</li>
 					</ul>
 				</div>
@@ -305,6 +308,7 @@
 			document.getElementById("myDiv").innerHTML = out;
 		}
 	</script> -->
+
 	<button type="button" onclick="loadXMLDoc('xml/index.xml','demo')">请求 JSON 数据</button>
 	<div id="myDiv">
 		<video width="60%" height="60%"
@@ -322,6 +326,8 @@
 			src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4b24c4b6-9b2d-4aea-9000-8b606a17403b/%E6%AE%89%E9%81%93%E8%80%85%EF%BC%8C%E5%AE%89%E5%A4%9A%E6%81%A9-%E9%BB%98%E8%AE%A4-%E6%88%98%E6%96%97-Idle1-x1.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220829T131910Z&X-Amz-Expires=86400&X-Amz-Signature=b7bbbe3ada7ff8eaf63f6915de46a12011e15dd9900e647ebb6b517cbe22ac8e&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%20%3D%22%25E2%2580%259C%25E6%25AE%2589%25E9%2581%2593%25E8%2580%2585%25E2%2580%259D%25EF%25BC%258C%25E5%25AE%2589%25E5%25A4%259A%25E6%2581%25A9-%25E9%25BB%2598%25E8%25AE%25A4-%25E6%2588%2598%25E6%2596%2597-Idle1-x1.webm%22&x-id=GetObject"
 			autoplay="autoplay" preload="auto" loop="loop"></video>
 	</div>
+
+	<!-- 预防Ddos攻击 -->
 	<script>
 		var add = (function () {
 			var con = 0;
@@ -371,6 +377,22 @@
 		);
 	</script> -->
 	<!-- Scripts -->
+
+	<!-- 和风天气api接口 -->
+	<script>
+		WIDGET = {
+			"CONFIG": {
+				"layout": "1",
+				"width": "450",
+				"height": "150",
+				"background": "5",
+				"dataColor": "FFFFFF",
+				"key": "f787cdf50aab422cae9d9d52f1938836"
+			}
+		}
+	</script>
+	<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
+	<!-- 其他js资源 -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>

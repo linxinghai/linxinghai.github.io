@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Star Space</title>
+</head>
+<body>
+
+<h2>将 JavaScript 对象转换为 JSON 字符串</h2>
+
+<p id="demo1"></p>
+
+<h2>使用 XMLHttpRequest 来获取文件内容</h2>
+<p>文件内容是标准的 JSON 格式，可以使用 JSON.parse 方法将其转换为 JavaScript 对象。</p>
+
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<script>
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        myObj = JSON.parse(this.responseText);
+        document.getElementById("demo5").innerHTML = myObj.name;
+    }
+};
+xmlhttp.open("GET", "/try/ajax/json_demo.txt", true);
+xmlhttp.send();
+
+</script>
+
+<p>查看 JSON 文件数据 <a href="test.json" target="_blank">json_demo.txt</a></p>
+
+<script>
+
+var arr,x;
+
+arr = {"name":"网站","num":3,"sites":["google","runoob","taobao"]};
+
+x = arr.sites[0];
+
+document.getElementById("demo7").innerHTML = x;
+
+var obj = { "name":"runoob", "alexa":10000, "site":"www.runoob.com"};
+var myJSON = JSON.stringify(obj);
+document.getElementById("demo1").innerHTML = myJSON;
+
+var arr = ["Google","Runboo","Taobao","Fackbook"];
+var myJSON = JSON.stringify(arr);
+document.getElementById("demo2").innerHTML = myJSON; 
+
+var obj = { "name": "runboo", "alexa": function () { return 10000; }, "site": "url" };
+obj.alexa = obj.alexa.toString();
+var myJSON = JSON.stringify(obj);
+document.getElementById("demo3").innerHTML = myJSON;
+
+var obj = {"name":"runboo","initdate":new Date(),"site":"url"};
+var myJSON = JSON.stringify(obj);
+document.getElementById("demo4").innerHTML = myJSON;
+
+var myObj,x;
+
+myObj = {"name":"runoob","alexa":10000,"site":null};
+
+x = myObj.name;
+
+document.getElementById("demo6").innerHTML = x;
+
+</script>
+
+</body>
+</html>
