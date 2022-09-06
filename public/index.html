@@ -17,7 +17,8 @@
 	</noscript>
 </head>
 
-<body onload="startTime(),loadXMLDoc('xml/index.xml','one',myFunction)" class="is-preload">
+<body onload="startTime(),loadXMLDoc('xml/index.xml','one',myFunction),getJson('json/footer.json',footer())"
+	class="is-preload">
 	<!-- <script>console.log(window.location.href)</script> -->
 	<script>
 		// <article>
@@ -64,7 +65,9 @@
 			<a href="index.html" class="logo"><strong>Star☆</strong> <span>by XingHai</span></a>
 
 			<nav>
-				<input id="search-text" type="text" placeholder="Search">
+				<form action="demo.php">
+					<input id="search-text" type="search" name="Search" placeholder="Search">
+				</form>
 				<button onclick="input()">搜索</button>
 				<a href="#menu"></a>
 			</nav>
@@ -97,9 +100,12 @@
 				<div class="content">
 					<p>本站目前只是一个静态的只有前端的网站<br />
 						所以只提供浏览已上传的网页,并没有做登录之类的功能<br />
-						我将在之后的时间逐渐丰富内容</p>
+						我将在之后的时间逐渐丰富内容<br>
+						但是限于各种原因会使用非主流和奇奇怪怪的功能
+					</p>
 					<ul class="actions">
 						<li>
+							<div>
 							<a href="games/browser/web/clock/clock.html">
 								<p id="time"></p>
 							</a>
@@ -108,7 +114,7 @@
 									no weather data
 								</a>
 							</div>
-
+</div>
 						</li>
 					</ul>
 				</div>
@@ -221,21 +227,27 @@
 						<div class="contact-method">
 							<span class="icon solid alt fa-envelope"></span>
 							<h3>Email</h3>
-							<a href="https://mail.qq.com/">linxinh@qq.com</a>
+							<a href="https://mail.qq.com/">
+								<p id="emaila"></p>
+							</a>
 						</div>
 					</section>
 					<section>
 						<div class="contact-method">
 							<span class="icon solid alt fa-phone"></span>
 							<h3>Phone</h3>
-							<span>159xxxxx844</span>
+							<span>
+								<p id="phones"></p>
+							</span>
 						</div>
 					</section>
 					<section>
 						<div class="contact-method">
 							<span class="icon solid alt fa-home"></span>
 							<h3>Address</h3>
-							<span>涉及个人隐私不与透露</span>
+							<span>
+								<p id="addresss"></p>
+							</span>
 						</div>
 					</section>
 				</section>
@@ -404,6 +416,7 @@
 	<script src="assets/js/location.js"></script>
 	<script src="assets/js/smtp.js"></script>
 	<script src="assets/js/ip.js"></script>
+	<script src="json/json.js"></script>
 	<script src="index.js"></script>
 </body>
 
