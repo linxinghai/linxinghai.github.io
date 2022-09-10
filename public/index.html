@@ -15,6 +15,17 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+
+	<!-- 百度统计接口 -->
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?97aa251777de31a1d07ab01aba73e807";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
 </head>
 
 <body onload="startTime(),loadXMLDoc('xml/index.xml','one',myFunction),getJson('json/footer.json',footer())"
@@ -402,16 +413,6 @@
 				"key": "f787cdf50aab422cae9d9d52f1938836"
 			}
 		}
-	</script>
-	<!-- 百度统计接口 -->
-	<script>
-		var _hmt = _hmt || [];
-		(function () {
-			var hm = document.createElement("script");
-			hm.src = "https://hm.baidu.com/hm.js?97aa251777de31a1d07ab01aba73e807";
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(hm, s);
-		})();
 	</script>
 
 	<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
