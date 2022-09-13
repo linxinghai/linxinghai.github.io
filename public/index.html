@@ -15,6 +15,8 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+	<!-- Angular -->
+	<script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
 
 	<!-- 百度统计接口 -->
 	<script>
@@ -212,15 +214,22 @@
 		<section id="contact">
 			<div class="inner">
 				<section>
-					<form method="post" action="#">
+					<form method="post" action="#" ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
 						<div class="fields">
 							<div class="field half">
 								<label for="name">Name</label>
 								<input type="text" name="name" id="name" />
+								<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+									<span ng-show="myForm.user.$error.required">用户名是必须的。</span>
+								</span>
 							</div>
 							<div class="field half">
 								<label for="email">Email</label>
 								<input type="text" name="email" id="email" />
+								<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+									<span ng-show="myForm.email.$error.required">邮箱是必须的。</span>
+									<span ng-show="myForm.email.$error.email">非法的邮箱地址。</span>
+								</span>
 							</div>
 							<div class="field">
 								<label for="message">Message</label>
@@ -228,7 +237,10 @@
 							</div>
 						</div>
 						<ul class="actions">
-							<li><input type="submit" value="Send Message" class="primary" /></li>
+							<li>
+								<input type="submit" value="Send Message" class="primary" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
+								myForm.email.$dirty && myForm.email.$invalid">
+							</li>
 							<li><input type="reset" value="Clear" /></li>
 						</ul>
 					</form>
@@ -401,7 +413,7 @@
 	</script> -->
 	<!-- Scripts -->
 
-	<!-- 和风天气api接口 -->
+	<!-- 和风天气api接口
 	<script>
 		WIDGET = {
 			"CONFIG": {
@@ -413,6 +425,15 @@
 				"key": "f787cdf50aab422cae9d9d52f1938836"
 			}
 		}
+	</script> -->
+
+	<!-- 输入验证 -->
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('validateCtrl', function ($scope) {
+			$scope.name = 'John Doe';
+			$scope.email = 'john.doe@gmail.com';
+		});
 	</script>
 
 	<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
