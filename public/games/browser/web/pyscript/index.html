@@ -7,8 +7,11 @@
     <title>标题</title>
     <link rel="stylesheet" href="main.css">
 
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script> -->
+
+    <link rel="stylesheet" href="path/to/pyscript.css" />
+    <script defer src="path/to/pyscript.js"></script>
 
     <py-env>
         - matplotlib
@@ -31,7 +34,7 @@
         # First create the x and y coordinates of the points.
         n_angles = 345
         n_radii = 78
-        min_radius = 0.275
+        min_radius = 0.9
         radii = np.linspace(min_radius, 0.95, n_radii)
         
         angles = np.linspace(0, 2 * np.pi, n_angles, endpoint=False)
