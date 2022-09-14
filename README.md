@@ -1,4 +1,6 @@
-# star.gitee.io
+# 博客自述
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cb770cf1-f0d9-4c4b-91af-e1d8c5063e8c/deploy-status)](https://app.netlify.com/sites/linstarspace/deploys)
 
 #### 介绍
 {**以下是 Gitee 平台说明，您可以替换此简介**

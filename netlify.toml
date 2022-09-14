@@ -1,4 +1,10 @@
 [build]
-  command = "# no build command"
+  command = "npm run netlify"
   functions = "netlify/functions"
   publish = "public"
+  base = "/"
+
+[[redirects]]
+  from = "/*"
+  to = "index.html"
+  status = 200
