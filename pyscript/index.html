@@ -1,14 +1,58 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html" charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-        <title>标题</title>
+<html lang='zh-CN'>
 
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    </head>
-    <body>
-       <py-script>print('hello world')</py-script>
-    </body>
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>标题</title>
+    <link rel="stylesheet" href="main.css">
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <py-env>
+        - paths:
+            - ./utils.py
+    </py-env>
+</head>
+
+<body>
+    <div class="font-mono">start time: <label id="outputDiv"></label></div>
+    <div id="outputDiv2" class="font-mono"></div>
+    <div id="outputDiv3" class="font-mono"></div>
+
+    <py-script output="outputDiv">
+import utils
+utils.now()
+    </py-script>
+
+    <py-script>
+from utils import now
+import asyncio
+
+async def foo():
+    while True:
+        await asyncio.sleep(1)
+        output = now()
+        Element("outputDiv2").write(output)
+
+        out3 = Element("outputDiv3")
+        if output[-1] in ["0", "4", "8"]:
+            out3.write("It's espresso time!")   
+        else:
+            out3.clear()
+
+
+pyscript_loader.close()
+pyscript.run_until_complete(foo())
+    </py-script>
+
+    <py-script>
+        from datetime import datetime
+        now=datetime.now()
+        print("hello world")
+        now.strftime("%y/%m/%d,%H:%M:%S")
+    </py-script>
+</body>
+
 </html>
