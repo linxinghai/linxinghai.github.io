@@ -2,9 +2,3 @@
   command = "# no build command"
   functions = "netlify/functions"
   publish = "public"
-  base = "/"
-
-[[redirects]]
-  from = "/*"
-  to = "index.html"
-  status = 200
