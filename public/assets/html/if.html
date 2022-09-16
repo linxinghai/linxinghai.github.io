@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            javascript基础入门
+        </title>
+    </head>
+    <body>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <p id="random"></p>
+        <button type="button" onclick="myfunction()">
+            点击
+        </button>
+        <button>
+            
+        </button>
+        <button type="button" onclick="rand()">
+            生成随机连接
+        </button>
+        <script>
+            function rand(){
+                var r=Math.random();
+                var x=document.getElementById("random");
+                if (r>0.5) {
+                    x.innerHTML="<a href='http://www.runoob.com'>访问菜鸟教程</a>";
+                } else {
+                    x.innerHTML="<a href='http://wwf.org'>Visit WWF</a>";
+                }
+            }
+            function myFunction(){
+                var x="";
+                var time=new Date().getHours();
+                if (time<20){
+                    x="Good day";
+                }
+                else{
+                    x="good evening";
+                }
+                document.getElementById("demo").innerHTML=x;
+            }
+        </script>
+    </body>
+</html>

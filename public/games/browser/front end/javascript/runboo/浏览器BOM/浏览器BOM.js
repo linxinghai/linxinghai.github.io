@@ -1,3 +1,0 @@
-w=window.innerHeight;
-
-setInterval

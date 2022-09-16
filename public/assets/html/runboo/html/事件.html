@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+<script>
+function writeText(txt){
+	document.getElementById("desc").innerHTML=txt;
+}
+</script>
+</head>
+
+<body>
+<img src ="planets.gif" width ="145" height ="126" alt="Planets" usemap="#planetmap" />
+<map name="planetmap">
+<area shape ="rect" coords ="0,0,82,126"
+onmouseover="writeText('太阳和气体巨星类似木星是太阳系中最大的物体。')"
+href ="sun.htm" target ="_blank" alt="Sun" />
+<area shape ="circle" coords ="90,58,3"
+onmouseover="writeText('从地球上很难研究水星，因为它太接近太阳。')"
+href ="mercur.htm" target ="_blank" alt="Mercury" />
+<area shape ="poly" coords ="124,58,8,10,60,10"
+onmouseover="writeText('至到1960年，金星经常被认为是地球的孪生妹妹，因为金星是最靠近我们的行星，并且两个行星有很多相似的特点。')" t')"
+href ="venus.htm" target ="_blank" alt="Venus" />
+</map> 
+
+<p id="desc">鼠标在太阳和星星上移动，可以看到不同的描述。</p>
+
+<p id="demo"></p>
+<button type="button" onclick="writeText(Data())"></button>
+
+</body>
+</html>
