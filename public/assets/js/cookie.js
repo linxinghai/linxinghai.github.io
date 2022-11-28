@@ -6,11 +6,21 @@ function setCookie(cname,cvalue,exdays) {
 }
 
 function getCookie(cname) {
-    
+    return document.cookie;
 }
 
 function checkCookie(params) {
-    
+    var user=getCookie("username");
+    if(user!="")
+    {
+        alert("欢迎 "+user+"再次访问");
+    }else{
+        user=prompt("请输入你的名字:","");
+        if(user!=""&&user!=null)
+        {
+            setCookie("username",user,30);
+        }
+    }
 }
 
 function deleteCookie(cname) {

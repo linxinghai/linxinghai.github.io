@@ -22,6 +22,8 @@ function startTime() {
 //     return i;
 // }
 
+// setTimeout
+
 // function func() {
 //     alert("请勿长时间或频繁访问");
 // }
