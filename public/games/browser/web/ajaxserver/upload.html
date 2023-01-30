@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <iframe src="" frameborder="" id="ifm" name="ifm" style="display: none"></iframe>
+    <form action="/upload" method="post" enctype="multipart/form-data" id="fm" target="ifm">
+        <p><input type="file" onchange="upload()" name="img"></p>
+    </form>
+    <h3>预览</h3>
+    <div id="preview">
+
+    </div>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        function upload() {
+            document.getElementById("ifm").onload = uploadifm;
+            document.getElementById("fm").submit();
+        }
+
+        function uploadifm() {
+            var content = this.contentWindow.document.body.innerHTML;
+            var obj = JSON.parse(content);
+            var tag = document.createElement("img");
+            tag.src = obj.path;
+            $("#preview").empty().append(tag);
+        }
+    </script>
+</body>
+
+</html>

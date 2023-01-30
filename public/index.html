@@ -1,0 +1,486 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="zh-CN">
+
+<head>
+	<title>Star Space</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="icon" sizes="180x180" href="images/QQ图片20210814213443.jpg" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+
+	<!-- jQuery -->
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<!-- Angular -->
+	<script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+
+	<!-- vue -->
+	<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
+	<!-- React -->
+	<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+	<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+	<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+	<!-- 引入 echarts.js -->
+	<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+
+	<!-- Highcharts -->
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+
+	<!-- Google地图 -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJW4jsPlNKgv6jFm3B5Edp5ywgdqLWdmc&callback=initMap"
+		async defer></script>
+
+	<!-- 百度统计接口 -->
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?97aa251777de31a1d07ab01aba73e807";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+	<!-- pyscript引用 -->
+	<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+	<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+
+<body onload="startTime(),loadXMLDoc('xml/index.xml','one',myFunction),getJson('json/footer.json',footer())"
+	class="is-preload">
+	<!-- <script>console.log(window.location.href)</script> -->
+	<script>
+		// <article>
+		// 	<span class="image">
+		// 		<img src="images/pic01.jpg" alt="" />
+		// 	</span>
+		// 	<header class="major">
+		// 		<h3><a href="secondary_interface/Aliquam.html" class="link">编程</a></h3>
+		// 		<p>数种编程语言的项目与教程</p>
+		// 	</header>
+		// </article>
+		function myFunction(xml, id) {
+			var i;
+			var xmlDoc = xml.responseXML;
+			var table = "";
+			var x = xmlDoc.getElementsByTagName("massage");
+			console.log(x);
+			for (i = 0; i < x.length; i++) {
+				console.log(x[i].getElementsByTagName("h"));
+				table += "<article><span class=\"image\"><img src=\"" +
+					x[i].getElementsByTagName("i")[0].childNodes[0].nodeValue +
+					"\" alt=\"\" /></span><header class=\"major\"><h3><a href=\"" +
+					x[i].getElementsByTagName("h")[0].childNodes[0].nodeValue +
+					"\"class=\"link\">" +
+					x[i].getElementsByTagName("a")[0].childNodes[0].nodeValue +
+					"</a></h3><p>" +
+					x[i].getElementsByTagName("p")[0].childNodes[0].nodeValue +
+					"</p></header></article>";
+			}
+			document.getElementById(id).innerHTML += table;
+		}
+		function input() {
+			var text = document.getElementById("search-text").value;
+			alert(text);
+		}
+	</script>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<img src="images/QQ图片20210814213443.jpg" alt="avarter">
+			<a href="index.html" class="logo"><strong>Star☆</strong> <span>by XingHai</span></a>
+
+			<nav>
+				<form action="demo.php">
+					<input id="search-text" type="search" name="Search" placeholder="Search">
+				</form>
+				<button onclick="input()"></button>
+				<a href="#menu"></a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<ul class="links">
+				<!-- <button id="search-btn" type="button"></button>	 -->
+				<li><a href="index.html">家</a></li>
+				<li><a href="landing.html">登录</a></li>
+				<li><a href="games/browser/web/基本的光线投射/games.html">游戏</a></li>
+				<li><a href="assets/pyscript-main/pyscriptjs/examples/webgl/raycaster/index.html">python</a></li>
+				<li><a href="games/browser/web/aniplex/aniplex.html">aniplex</a></li>
+				<li><a href="after end/PHP/1.html">php</a></li>
+				<li><a href="games/browser/web/纸飞机/fly.html">fly</a></li>
+				<li><a href="generic.html">Generic</a></li>
+				<li><a href="elements.html">Elements</a></li>
+			</ul>
+			<ul class="actions stacked">
+				<li><a href="login.html" class="button primary fit">Get Started</a></li>
+				<li><a href="games/browser/web/databaseview/index.html" class="button fit" onclick="">Log In</a></li>
+			</ul>
+		</nav>
+
+		<!-- Banner -->
+		<section id="banner" class="major">
+			<div class="inner">
+				<header class="major">
+					<h1>你好,这是一个我个人的博客空间</h1>
+				</header>
+				<div class="content">
+					<p>本站目前只是一个静态的只有前端的网站<br />
+						所以只提供浏览已上传的网页,并没有做登录之类的功能<br />
+						我将在之后的时间逐渐丰富内容<br>
+						但是限于各种原因会使用非主流和奇奇怪怪的功能
+					</p>
+					<ul class="actions">
+						<li>
+							<div>
+								<a href="games/browser/web/clock/clock.html">
+									<p id="time"></p>
+								</a>
+								<div id="he-plugin-standard">
+									<a href="https://www.qweather.com/" class="button next scrolly" id="weather">
+										no weather data
+									</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- One -->
+			<section id="one" class="tiles">
+				<!-- <article>
+					<span class="image">
+						<img src="images/pic01.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h3><a href="secondary_interface/Aliquam.html" class="link">编程</a></h3>
+						<p>数种编程语言的项目与教程</p>
+					</header>
+				</article>
+				<article>
+					<span class="image">
+						<img src="images/pic02.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h3><a href="secondary_interface/Tempus.html" class="link">FPGA</a></h3>
+						<p>IC设计</p>
+					</header>
+				</article>
+				<article>
+					<span class="image">
+						<img src="images/pic03.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h3><a href="secondary_interface/Magna.html" class="link">前端与后端</a></h3>
+						<p>前端网页与后端数据库</p>
+					</header>
+				</article>
+				<article>
+					<span class="image">
+						<img src="images/pic04.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h3><a href="secondary_interface/Ipsum.html" class="link">嵌入式物联网</a></h3>
+						<p>单片机</p>
+					</header>
+				</article>
+				<article>
+					<span class="image">
+						<img src="images/pic05.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h3><a href="secondary_interface/Consequat.html" class="link">学习笔记</a></h3>
+						<p>数学物理等</p>
+					</header>
+				</article>
+				<article>
+					<span class="image">
+						<img src="images/pic06.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h3><a href="secondary_interface/Etiam.html" class="link">数据恢复</a></h3>
+						<p>.....</p>
+					</header>
+				</article> -->
+			</section>
+
+			<!-- Two -->
+			<section id="two">
+				<div class="inner">
+					<header class="major">
+						<h2>Massa libero</h2>
+					</header>
+					<p><a href="https://www.processon.com/diagrams">processon</a></p>
+					<ul class="actions">
+						<li><a href="landing.html" class="button next">Get Started</a></li>
+					</ul>
+				</div>
+			</section>
+
+		</div>
+
+		<!-- Contact -->
+		<section id="contact">
+			<div class="inner">
+				<section>
+					<form method="post" action="#" ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
+						<div class="fields">
+							<div class="field half">
+								<label for="name">Name</label>
+								<input type="text" name="name" id="name" />
+								<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+									<span ng-show="myForm.user.$error.required">用户名是必须的。</span>
+								</span>
+							</div>
+							<div class="field half">
+								<label for="email">Email</label>
+								<input type="text" name="email" id="email" />
+								<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+									<span ng-show="myForm.email.$error.required">邮箱是必须的。</span>
+									<span ng-show="myForm.email.$error.email">非法的邮箱地址。</span>
+								</span>
+							</div>
+							<div class="field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" rows="6"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li>
+								<input type="submit" value="Send Message" class="primary" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
+								myForm.email.$dirty && myForm.email.$invalid">
+							</li>
+							<li><input type="reset" value="Clear" /></li>
+						</ul>
+					</form>
+				</section>
+				<section class="split">
+					<section>
+						<div class="contact-method">
+							<span class="icon solid alt fa-envelope"></span>
+							<h3>Email</h3>
+							<a href="https://mail.qq.com/">
+								<p id="emaila"></p>
+							</a>
+						</div>
+					</section>
+					<section>
+						<div class="contact-method">
+							<span class="icon solid alt fa-phone"></span>
+							<h3>Phone</h3>
+							<span>
+								<p id="phones"></p>
+							</span>
+						</div>
+					</section>
+					<section>
+						<div class="contact-method">
+							<span class="icon solid alt fa-home"></span>
+							<h3>Address</h3>
+							<span>
+								<p id="addresss"></p>
+							</span>
+						</div>
+					</section>
+				</section>
+			</div>
+		</section>
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="https://m.weibo.cn/profile/5693624437" class="icon brands alt fa-weibo"><span
+								class="label">weibo</span></a></li>
+					<li><a href="#" class="fa-brands fa-bilibili"><span class="label">bilibili</span></a></li>
+					<li><a href="https://www.zhihu.com/people/mu-mu-xing-57" class="icon brands alt fa-zhihu"><span
+								class="label">zhihu</span></a></li>
+					<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon brands alt fa-qq"><span class="label">qq</span></a></li>
+				</ul>
+				<!-- <ul class="copyright">
+					<li>&copy; Untitled</li>
+					<li>网站模板来自: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul> -->
+			</div>
+		</footer>
+
+	</div>
+	<form action="demo.php" method="post">
+		<input type="text" name="fname" required="required">
+		<input type="submit" value="提交">
+	</form>
+	<div id="id"></div>
+	<div id="nam"></div>
+	<div id="ta"></div>
+	<div id="tex"></div>
+	<div id="url"></div>
+	<div id="t"></div>
+	<div id="json"></div>
+	<div id="demo"></div>
+	<script>
+		document.getElementById("demo").innerHTML = "ip归属地: " + GetLoaclIpAddress();
+	</script>
+	<!-- <script>
+		function loadXMLDoc() {
+			var xmlhttp;
+			if (window.XMLHttpRequest) {
+				// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+				xmlhttp = new XMLHttpRequest();
+			}
+			else {
+				// IE6, IE5 浏览器执行代码
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readySt	ate == 4 && xmlhttp.status == 200) {
+					var myArr = JSON.parse(this.responseText);
+					myFunction(myArr)
+				}
+			}
+			xmlhttp.open("GET", "/database", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+			xmlhttp.send();
+		}
+		function myFunction(arr) {
+			var out = "";
+			var i;
+			for (i = 0; i < arr.length; i++) {
+				out += '<a href="' + arr[i].url + '">' +
+					arr[i].nam + '</a><br>';
+			}
+			document.getElementById("myDiv").innerHTML = out;
+		}
+	</script> -->
+
+	<button type="button" onclick="loadXMLDoc('xml/index.xml','demo')">请求 JSON 数据</button>
+	<div id="myDiv">
+		<video width="60%" height="60%"
+			src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0814f28d-cd42-4e71-955c-f5166e362d3c/%E8%93%9D%E6%AF%92-%E6%B5%85%E6%BB%A9%E5%BE%8B%E5%8A%A8-%E5%9F%BA%E5%BB%BA-Special-x1.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220919%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220919T102202Z&X-Amz-Expires=86400&X-Amz-Signature=e85d251a152553fd69fe9c4932cafcb4f2e97b6ce684b60dd9aa698fd05ddb4b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25E8%2593%259D%25E6%25AF%2592-%25E6%25B5%2585%25E6%25BB%25A9%25E5%25BE%258B%25E5%258A%25A8-%25E5%259F%25BA%25E5%25BB%25BA-Special-x1.webm%22&x-id=GetObject"
+			autoplay="autoplay" preload="auto" loop="loop"></video>
+		<div id="landu" onclick="landulick()">
+			<video width="60%" height="60%"
+				src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0814f28d-cd42-4e71-955c-f5166e362d3c/%E8%93%9D%E6%AF%92-%E6%B5%85%E6%BB%A9%E5%BE%8B%E5%8A%A8-%E5%9F%BA%E5%BB%BA-Special-x1.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220829T121833Z&X-Amz-Expires=86400&X-Amz-Signature=b9c0b0e3ebb9e4ae7f65e7d86ad665f89c82066bd706d33342cb5932ccefc91e&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%20%3D%22%25E8%2593%259D%25E6%25AF%2592-%25E6%25B5%2585%25E6%25BB%25A9%25E5%25BE%258B%25E5%258A%25A8-%25E5%259F%25BA%25E5%25BB%25BA-Special-x1.webm%22&x-id=GetObject"
+				autoplay="autoplay" preload="auto" loop="loop"></video>
+		</div>
+		<video width="60%" height="60%"
+			src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a984611d-488a-4353-ab78-04d5b9ef87d3/%E6%BE%84%E9%97%AA-%E9%BB%98%E8%AE%A4-%E6%88%98%E6%96%97%E6%AD%A3%E9%9D%A2-Skill3_Loop-x1.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220829T124300Z&X-Amz-Expires=86400&X-Amz-Signature=fe78c9db9c9d55281ab21a2d4b3b8a1099ea452181a8461f0bfcc7e3258ec949&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%20%3D%22%25E6%25BE%2584%25E9%2597%25AA-%25E9%25BB%2598%25E8%25AE%25A4-%25E6%2588%2598%25E6%2596%2597%25E6%25AD%25A3%25E9%259D%25A2-Skill3_Loop-x1.webm%22&x-id=GetObject"
+			autoplay="autoplay" preload="auto" loop="loop"></video>
+		<video width="60%" height="60%"
+			src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4b24c4b6-9b2d-4aea-9000-8b606a17403b/%E6%AE%89%E9%81%93%E8%80%85%EF%BC%8C%E5%AE%89%E5%A4%9A%E6%81%A9-%E9%BB%98%E8%AE%A4-%E6%88%98%E6%96%97-Idle1-x1.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220829T131910Z&X-Amz-Expires=86400&X-Amz-Signature=b7bbbe3ada7ff8eaf63f6915de46a12011e15dd9900e647ebb6b517cbe22ac8e&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%20%3D%22%25E2%2580%259C%25E6%25AE%2589%25E9%2581%2593%25E8%2580%2585%25E2%2580%259D%25EF%25BC%258C%25E5%25AE%2589%25E5%25A4%259A%25E6%2581%25A9-%25E9%25BB%2598%25E8%25AE%25A4-%25E6%2588%2598%25E6%2596%2597-Idle1-x1.webm%22&x-id=GetObject"
+			autoplay="autoplay" preload="auto" loop="loop"></video>
+	</div>
+
+	<!-- 预防Ddos攻击 -->
+	<script>
+		var add = (function () {
+			var con = 0;
+			return function () { con += 1; }
+		})();
+		function landulick() {
+			var text = "<video width=\"60\%\" height=\"60\%\" src=\"https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c3f9d746-c045-4e79-bcd0-5a937ae32f9d/%E7%BA%A2-%E9%BB%98%E8%AE%A4-%E5%9F%BA%E5%BB%BA-Sleep-x1.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220829T125908Z&X-Amz-Expires=86400&X-Amz-Signature=551f1e7d8fbed82efec0630dcc92da8c70e2bbe875eb8fa1c2f73a2ac6462e87&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%20%3D%22%25E7%25BA%25A2-%25E9%25BB%2598%25E8%25AE%25A4-%25E5%259F%25BA%25E5%25BB%25BA-Sleep-x1.webm%22&x-id=GetObject\" autoplay=\"autoplay\" preload=\"auto\" loop=\"loop\"></video>"
+			document.getElementById("landu").innerHTML = text;
+		}
+		function checkCookie() {
+			var username = "";
+			var name = "username" + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i].trim();
+				if (c.indexOf(name) == 0) { username = c.substring(name.length, c.length); }
+			}
+			if (username != "") {
+				var num = add();
+				if (num == 0)
+					alert("请勿频繁访问");
+				console.log(add());
+			}
+			else {
+				username = 1;
+				if (username != "" && username != null) {
+					var d = new Date();
+					d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
+					var expires = "expires=" + d.toGMTString();
+					document.cookie = "username" + "=" + username + "; " + expires;
+				}
+			}
+		}
+	</script>
+	<!-- <a href="mailio:2950581738@qq.com"></a>
+	<script>
+		Email.send({
+			Host: "smtp.qq.com",
+			Username: "2950581738@qq.com",
+			Password: "lbkunffyienndefb",
+			To: '2950581738@qq.com',
+			From: "2950581738@qq.com",
+			Subject: "验证消息",
+			Body: "你的验证码是214598"
+		}).then(
+			message => write(message)
+		);
+	</script> -->
+	<!-- Scripts -->
+
+	<!-- 和风天气api接口 -->
+	<script>
+		WIDGET = {
+			"CONFIG": {
+				"layout": "1",
+				"width": "450",
+				"height": "150",
+				"background": "5",
+				"dataColor": "FFFFFF",
+				"key": "f787cdf50aab422cae9d9d52f1938836"
+			}
+		}
+	</script>
+
+	<!-- 输入验证 -->
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('validateCtrl', function ($scope) {
+			$scope.name = 'John Doe';
+			$scope.email = 'john.doe@gmail.com';
+		});
+	</script>
+
+	<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
+	<!-- 其他js资源 -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/time.js"></script>
+	<script src="assets/js/location.js"></script>
+	<script src="assets/js/smtp.js"></script>
+	<script src="assets/js/ip.js"></script>
+	<script src="json/json.js"></script>
+	<script src="index.js"></script>
+
+	<script src="assets/node/server.js"></script>
+</body>
+
+</html>

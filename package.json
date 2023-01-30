@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "vue-markdown-loader": "^2.5.0"
+  }
+}

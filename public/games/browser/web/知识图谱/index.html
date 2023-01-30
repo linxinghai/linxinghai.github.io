@@ -1,0 +1,25 @@
+<head>
+    <script src="//unpkg.com/3d-force-graph@1"></script>
+    <script src="//unpkg.com/d3-dsv"></script>
+
+    <script src="data-set-loader.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="3d-graph"></div>
+
+    <div class="dimensions-selector">
+        Dimensions:
+        <input type="radio" name="num-dimensions" onChange="toggleDimensions(1)"> 1D
+        <input type="radio" name="num-dimensions" onChange="toggleDimensions(2)" checked> 2D
+        <input type="radio" name="num-dimensions" onChange="toggleDimensions(3)"> 3D
+    </div>
+    <div class="graph-data">
+        <span id="graph-data-description"></span>
+        <button class="toggle-data-btn" onClick="toggleData()">Show me something else</button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
